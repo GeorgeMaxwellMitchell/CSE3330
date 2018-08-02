@@ -1,12 +1,5 @@
 #include "core.h"
 
-#include "connector.h"
-
-#include <iostream>
-#include <exception>
-
-#include <cstdlib>
-
 int main(void) {
 
     try {
