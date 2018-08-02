@@ -4,7 +4,8 @@ int main(void) {
 
     try {
 
-        cse3330::Connector connector{};
+        std::shared_ptr<cse3330::Connector> connector{ 
+            std::make_shared<cse3330::Connector>() };
 
     } catch (std::exception& e) {
 
