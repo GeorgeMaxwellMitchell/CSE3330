@@ -1,17 +1,5 @@
 #pragma once
 
-#include <string>
-
-// Forward declaration of MySQL types
-namespace sql {
-
-    class Driver;
-    class Connection;
-    class Statement;
-    class ResultSet;
-
-}
-
 namespace cse3330 {
 
     // Connector class

@@ -1,9 +1,6 @@
-#include "Connector.hpp"
+#include "stdafx.h"
 
-// Disable warnings about dll-interface
-#ifdef _MSC_VER
-#pragma warning(disable : 4251)
-#endif
+#include "Connector.hpp"
 
 #include "cppconn/driver.h"
 #include "cppconn/statement.h"

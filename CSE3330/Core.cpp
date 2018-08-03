@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "Core.hpp"
 
 namespace cse3330 {

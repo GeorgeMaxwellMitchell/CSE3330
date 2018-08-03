@@ -1,14 +1,9 @@
 #pragma once
 
-//#include "controller.h"
+#include "Controller.hpp"
 
 #include "Connector.hpp"
 
-#include <iostream>
-#include <exception>
-#include <memory>
-
-#include <cstdlib>
 
 namespace cse3330 {
 
