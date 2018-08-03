@@ -2,6 +2,8 @@
 
 namespace cse3330 {
 
+    class GUI;
+
     // Connector class
     // Holds all database connection behavior
     // Links with the MySQL Connector C++ library dynamically
@@ -9,7 +11,7 @@ namespace cse3330 {
 
     public:
 
-        Connector();
+        Connector(GUI* gui);
         ~Connector();
 
         // Connects client to server
@@ -24,7 +26,12 @@ namespace cse3330 {
 
         // TODO: Need to convert result into something usable by GUI
 
+        // Deleted constructors
+        Connector(Connector const&) = delete;
+
     private:
+
+        GUI*                gui;            // Pointer to GUI object
 
         sql::Driver*        driver;         // Holds server info
         sql::Connection*    connection;     // Holds database info

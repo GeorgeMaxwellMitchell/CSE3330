@@ -5,7 +5,11 @@
 namespace cse3330 {
 
     Core::Core()
-    : connector{} { }
+    :   connector{&gui},
+        gui{&connector} {
+        
+        
+    }
 
 }
 

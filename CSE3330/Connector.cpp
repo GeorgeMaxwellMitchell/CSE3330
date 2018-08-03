@@ -2,10 +2,13 @@
 
 #include "Connector.hpp"
 
+#include "GUI.hpp"
+
 namespace cse3330 {
 
-    Connector::Connector() 
-    :   driver{ nullptr },
+    Connector::Connector(GUI* gui) 
+    :   gui{gui},
+        driver{ nullptr },
         connection{ nullptr },
         statement{ nullptr },
         result_set{ nullptr } {

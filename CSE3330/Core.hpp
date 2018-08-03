@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Connector.hpp"
+#include "GUI.hpp"
 
 namespace cse3330 {
 
@@ -13,7 +14,7 @@ namespace cse3330 {
     private:
 
         Connector connector;
-
+        GUI gui;
     };
 
 }
