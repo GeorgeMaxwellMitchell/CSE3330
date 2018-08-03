@@ -2,11 +2,6 @@
 
 #include "Connector.hpp"
 
-#include "cppconn/driver.h"
-#include "cppconn/statement.h"
-
-#include <assert.h>
-
 namespace cse3330 {
 
     Connector::Connector() 

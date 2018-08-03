@@ -18,9 +18,6 @@
     <ClInclude Include="Connector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Controller.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Core.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -30,9 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Connector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core.cpp">

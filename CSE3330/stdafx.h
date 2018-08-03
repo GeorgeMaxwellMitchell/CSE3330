@@ -14,6 +14,7 @@
 
 // Standard C headers
 #include <cstdlib>
+#include <assert.h>
 
 // MySQL Connector C++ headers
 #include <cppconn/driver.h>

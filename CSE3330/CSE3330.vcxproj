@@ -136,13 +136,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Connector.hpp" />
-    <ClInclude Include="Controller.hpp" />
     <ClInclude Include="Core.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Connector.cpp" />
-    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
