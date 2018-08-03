@@ -1,9 +1,5 @@
 #pragma once
 
-// Connector object
-// Holds all database connection behavior
-// Links with the MySQL Connector C++ library dynamically
-
 #include <string>
 
 // Forward declaration of MySQL types
@@ -18,6 +14,9 @@ namespace sql {
 
 namespace cse3330 {
 
+    // Connector class
+    // Holds all database connection behavior
+    // Links with the MySQL Connector C++ library dynamically
     class Connector final {
 
     public:

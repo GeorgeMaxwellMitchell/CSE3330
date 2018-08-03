@@ -1,11 +1,17 @@
-#include "core.h"
+#include "Core.hpp"
+
+namespace cse3330 {
+
+    Core::Core()
+    : connector{} { }
+
+}
 
 int main(void) {
 
     try {
 
-        std::shared_ptr<cse3330::Connector> connector{ 
-            std::make_shared<cse3330::Connector>() };
+        cse3330::Core core{};
 
     } catch (std::exception& e) {
 

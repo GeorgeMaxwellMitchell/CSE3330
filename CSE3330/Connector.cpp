@@ -1,4 +1,4 @@
-#include "connector.h"
+#include "Connector.hpp"
 
 // Disable warnings about dll-interface
 #ifdef _MSC_VER
