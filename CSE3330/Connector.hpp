@@ -22,6 +22,8 @@ namespace cse3330 {
         // Basic query sender
         sql::ResultSet* send_query(std::string& query);
 
+        // TODO: Need to convert result into something usable by GUI
+
     private:
 
         sql::Driver*        driver;         // Holds server info
