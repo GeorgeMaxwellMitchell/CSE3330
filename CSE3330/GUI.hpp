@@ -10,9 +10,12 @@ namespace cse3330 {
 
         GUI(Connector* connector);
 
+        // Displays the login window
+        void show_login();
+
     private:
 
-        Connector* connector;
+        Connector* connector;   // Pointer to Connector object
 
     };
 

@@ -13,4 +13,10 @@ namespace cse3330 {
 
     }
 
+    void GUI::show_login() {
+
+
+
+    }
+
 }

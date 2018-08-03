@@ -11,6 +11,12 @@ namespace cse3330 {
         
     }
 
+    void Core::run() {
+
+        // gui.show_login();
+
+    }
+
 }
 
 int main(void) {
@@ -18,6 +24,8 @@ int main(void) {
     try {
 
         cse3330::Core core{};
+
+        core.run();
 
     } catch (std::exception& e) {
 

@@ -11,6 +11,8 @@ namespace cse3330 {
 
         Core();
 
+        void run();
+
     private:
 
         Connector connector;
