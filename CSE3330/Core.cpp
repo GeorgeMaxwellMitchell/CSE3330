@@ -13,7 +13,7 @@ namespace cse3330 {
 
     void Core::run() {
 
-        // gui.show_login();
+        gui.show_login();
 
     }
 
