@@ -46,9 +46,10 @@ namespace cse3330 {
         connection = driver->connect(host_name, user_name, password);
         connection->setSchema(database);
 
+
     }
 
-    sql::ResultSet* Connector::send_query(std::string& query) {
+    std::vector<std::string> Connector::send_query(std::string& query) {
 
         // Must establish a connection prior to sending queries
         assert(connection != nullptr);
@@ -58,7 +59,10 @@ namespace cse3330 {
         statement = connection->createStatement();
         result_set = statement->executeQuery(query);
 
-        return result_set;
+        // Need to change result_set into a list of strings to place
+        // into a vector
+
+        return { };
 
     }
 

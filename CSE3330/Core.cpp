@@ -27,10 +27,18 @@ int main(void) {
 
         core.run();
 
+    } catch (sql::SQLException& e) {
+
+        std::cerr << "SQL Exception thrown: " << e.what() << std::endl
+            << "SQL Error Code: " << e.getErrorCode() << std::endl
+            << "SQL State: " << e.getSQLState() << std::endl;
+
+        return EXIT_FAILURE;
+
     } catch (std::exception& e) {
 
-        std::cerr << "Exception thrown: "<< e.what() << std::endl;
-        std::cerr << "Press any key to exit" << std::endl;
+        std::cerr << "Exception thrown: "<< e.what() << std::endl
+            << "Press any key to exit" << std::endl;
         std::getchar();
 
         return EXIT_FAILURE;

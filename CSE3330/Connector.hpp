@@ -22,7 +22,7 @@ namespace cse3330 {
             std::string& database);
 
         // Basic query sender
-        sql::ResultSet* send_query(std::string& query);
+        std::vector<std::string> send_query(std::string& query);
 
         // TODO: Need to convert result into something usable by GUI
 

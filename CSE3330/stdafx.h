@@ -6,6 +6,7 @@
 #include <iostream>
 #include <exception>
 #include <string>
+#include <vector>
 
 // Standard C headers
 #include <cstdlib>
