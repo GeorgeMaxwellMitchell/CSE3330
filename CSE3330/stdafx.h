@@ -22,3 +22,6 @@
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
+
+// Nana GUI headers
+#include <nana/gui.hpp>
