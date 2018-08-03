@@ -19,29 +19,17 @@ namespace cse3330 {
         // This will all likely be placed within its own LoginWindow class
 
         // Define a test form
-        nana::form form_test{ };
-
-        // Define a label to display some text
-        nana::label label_test{ form_test, "Window test successful" };
-        label_test.format(true);
-
-        // Define a quit button
-        nana::button button_quit_test{ form_test, "Quit" };
-        button_quit_test.events().click(
-            [&form_test] { form_test.close(); }
-        );
+        nana::form form_login{ };
 
         // Layout management for the test window
-        form_test.div(
-            "vert"
-            "<> < <> <weight=80% text> <> > <>"
-            " <weight=24% <> <button> <> > <>" );
-        form_test["text"] << label_test;
-        form_test["button"] << button_quit_test;
-        form_test.collocate();
+        // For nana::place documentation go to
+        // https://github.com/qPCR4vir/nana-docs/wiki/Using-place-for-layouts#an-illustration
+        nana::place place_login{ form_login };
+
+        // TODO: Add formatting here
 
         // Display the window
-        form_test.show();
+        form_login.show();
 
         // Initiate event loop process
         // Blocks until the window is closed
