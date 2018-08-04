@@ -5,7 +5,7 @@
 namespace cse3330 {
 
     Core::Core()
-    :   connector{&gui},
+    :   connector{ },
         gui{&connector} {
         
         
@@ -47,4 +47,4 @@ int main(void) {
 
     return EXIT_SUCCESS;
 
-} // int main(void)
+} // main

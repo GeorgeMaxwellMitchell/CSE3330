@@ -9,9 +9,8 @@
 
 namespace cse3330 {
 
-    Connector::Connector(GUI* gui) 
-    :   gui{ gui },
-        driver{ nullptr },
+    Connector::Connector() 
+    :   driver{ nullptr },
         connection{ nullptr },
         statement{ nullptr },
         result_set{ nullptr } {
