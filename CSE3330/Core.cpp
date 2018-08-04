@@ -6,10 +6,7 @@ namespace cse3330 {
 
     Core::Core()
     :   connector{ },
-        gui{&connector} {
-        
-        
-    }
+        gui{&connector} { }
 
     void Core::run() {
 
