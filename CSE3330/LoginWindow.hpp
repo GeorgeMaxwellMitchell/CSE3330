@@ -17,6 +17,7 @@ namespace cse3330 {
 
         nana::button login_button;
 
+        // TODO: Change from textbox to inputbox
         nana::textbox
             host_name_textbox,
             user_name_textbox,
@@ -24,6 +25,12 @@ namespace cse3330 {
             database_name_textbox;
 
         nana::place window_format;
+
+        std::string
+            hostname,
+            username,
+            password,
+            database;
 
     };
 
