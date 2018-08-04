@@ -45,9 +45,14 @@ namespace cse3330 {
 
         // Connect to server, then connect to specific database
         // No reason to only connect to server for project
+        std::cerr << "Connecting to server..." << std::endl;
         connection = driver->connect(host_name, user_name, password);
+        
+        std::cerr << "Connecting to database..." << std::endl;
         connection->setSchema(database);
 
+        std::cerr << "Connected to " << database << " as " << user_name
+            << " on " << host_name << std::endl;
 
     } // connect_to_server
 

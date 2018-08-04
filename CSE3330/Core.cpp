@@ -28,7 +28,8 @@ int main(void) {
 
         std::cerr << "SQL Exception thrown: " << e.what() << std::endl
             << "SQL Error Code: " << e.getErrorCode() << std::endl
-            << "SQL State: " << e.getSQLState() << std::endl;
+            << "SQL State: " << e.getSQLState()
+            <<  "Press any key to exit" << std::endl;
 
         std::getchar();
 

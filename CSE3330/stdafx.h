@@ -2,6 +2,18 @@
 
 #pragma once
 
+// Disable warnings about dll-interface
+#ifdef _MSC_VER
+#pragma message("Note: disabled warning 4251 (dll-interface mismatch)")
+#pragma warning(disable : 4251)
+#endif
+
+// Must build program as x64-Release
+#if _M_IX86 || _DEBUG
+#error Building as x64 Release is required
+#endif
+
+
 // Standard C++ headers
 #include <iostream>
 #include <exception>
@@ -11,12 +23,6 @@
 // Standard C headers
 #include <cstdlib>
 #include <assert.h>
-
-// Disable warnings about dll-interface
-#ifdef _MSC_VER
-#pragma message("Note: disabled warning 4251 (dll-interface mismatch)")
-#pragma warning(disable : 4251)
-#endif
 
 // MySQL Connector C++ headers
 #include <cppconn/driver.h>
