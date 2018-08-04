@@ -4,10 +4,13 @@
 
 #include "GUI.hpp"
 
+// MySQL Connector C++ 1.1 Documentation at:
+// https://dev.mysql.com/doc/connector-cpp/1.1/en/
+
 namespace cse3330 {
 
     Connector::Connector(GUI* gui) 
-    :   gui{gui},
+    :   gui{ gui },
         driver{ nullptr },
         connection{ nullptr },
         statement{ nullptr },
@@ -16,7 +19,7 @@ namespace cse3330 {
         // Need to initialize driver before making a connection
         driver = get_driver_instance();
 
-    }
+    } // Connector
 
     Connector::~Connector() {
 
@@ -33,7 +36,7 @@ namespace cse3330 {
 
         // Do not need to delete driver
 
-    }
+    } // ~Connector
 
     void Connector::connect_to_server(
         std::string& host_name,
@@ -47,9 +50,11 @@ namespace cse3330 {
         connection->setSchema(database);
 
 
-    }
+    } // connect_to_server
 
-    std::vector<std::string> Connector::send_query(std::string& query) {
+    std::vector< std::vector<std::string> > Connector::send_query(
+        std::string& query,
+        int no_of_columns) {
 
         // Must establish a connection prior to sending queries
         assert(connection != nullptr);
@@ -59,11 +64,28 @@ namespace cse3330 {
         statement = connection->createStatement();
         result_set = statement->executeQuery(query);
 
-        // Need to change result_set into a list of strings to place
-        // into a vector
+        // Convert ResultSet to vector<vector<string>>
+        std::vector< std::vector<std::string> > ret_set{};
 
-        return { };
+        // Processes each row
+        while (result_set->next()) {
 
-    }
+            std::vector<std::string> row{  };
+
+            // Adds each column to the row
+            for (auto i = 1; i <= no_of_columns; i++) {
+
+                row.push_back(result_set->getString(i) );
+
+            }
+
+            // Add row to return value
+            ret_set.push_back(row);
+
+        }
+
+        return ret_set;
+
+    } // send_query
 
 } // namespace cse3330

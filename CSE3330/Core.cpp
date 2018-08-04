@@ -17,7 +17,7 @@ namespace cse3330 {
 
     }
 
-}
+} // namespace cse3330
 
 int main(void) {
 
@@ -47,4 +47,4 @@ int main(void) {
 
     return EXIT_SUCCESS;
 
-}
+} // int main(void)

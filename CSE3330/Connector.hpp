@@ -22,9 +22,12 @@ namespace cse3330 {
             std::string& database);
 
         // Basic query sender
-        std::vector<std::string> send_query(std::string& query);
-
-        // TODO: Need to convert result into something usable by GUI
+        // Takes in query to send as a string
+        //   and number of columns in the resulting table
+        // Returns a two-dimensional vector of all tuples gathered
+        std::vector< std::vector<std::string> > send_query(
+            std::string& query,
+            int no_of_columns);
 
         // Deleted constructors
         Connector(Connector const&) = delete;
