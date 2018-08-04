@@ -68,6 +68,9 @@ namespace cse3330 {
         statement = connection->createStatement();
         result_set = statement->executeQuery(query);
 
+        std::cerr << "Query executed: " << std::endl
+            << query << std::endl;
+
         // Convert ResultSet to vector<vector<string>>
         std::vector< std::vector<std::string> > ret_set{};
 
