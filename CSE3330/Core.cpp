@@ -30,12 +30,15 @@ int main(void) {
             << "SQL Error Code: " << e.getErrorCode() << std::endl
             << "SQL State: " << e.getSQLState() << std::endl;
 
+        std::getchar();
+
         return EXIT_FAILURE;
 
     } catch (std::exception& e) {
 
         std::cerr << "Exception thrown: "<< e.what() << std::endl
             << "Press any key to exit" << std::endl;
+
         std::getchar();
 
         return EXIT_FAILURE;
