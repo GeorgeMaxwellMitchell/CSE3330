@@ -28,7 +28,8 @@ namespace cse3330 {
             "<weight=25 gap=10 buttons>"
             "><>><>");
 
-        window_format.field("textboxes") << host_name_textbox
+        window_format.field("textboxes") 
+            << host_name_textbox
             << user_name_textbox
             << password_textbox
             << database_name_textbox;
