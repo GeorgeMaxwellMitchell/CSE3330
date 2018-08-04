@@ -37,9 +37,7 @@ namespace cse3330 {
 
         window_format.collocate();
 
-        // Lambda describing window behavior for clicking on login_button
-        // Stores all values into respective members and throws runtime error
-        //   when one is blank
+        // Stores login info on selecting login button
         login_button.events().mouse_up( [&] {
 
             host_name_textbox.getline(0, hostname);
@@ -50,6 +48,13 @@ namespace cse3330 {
             window.close();
 
         });
+
+        // Exits program on exiting window
+        window.events().destroy( [&] { 
+
+            throw std::exception{ "Window closed" };
+        
+        });
     
     } // login_window
 
@@ -58,9 +63,6 @@ namespace cse3330 {
         window.show();
 
         nana::exec();
-
-        
-       
     
     } // show_window
 
