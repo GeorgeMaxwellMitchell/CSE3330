@@ -9,6 +9,8 @@ namespace cse3330 {
         gui{&connector} { }
 
     void Core::run() {
+        std::cerr << "CSE3330 Project 2 by George Mitchell & Peter Severynen" << std::endl;
+        std::cerr << "Logging info will appear here" << std::endl;
 
         gui.show_login();
 
@@ -30,7 +32,7 @@ int main(void) {
 
         std::cerr << "SQL Exception thrown: " << e.what() << std::endl
             << "SQL Error Code: " << e.getErrorCode() << std::endl
-            << "SQL State: " << e.getSQLState()
+            << "SQL State: " << e.getSQLState() << std::endl
             <<  "Press any key to exit" << std::endl;
 
         std::getchar();
