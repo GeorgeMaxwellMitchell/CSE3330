@@ -20,7 +20,7 @@ int main(void) {
 
     try {
 
-        cse3330::Core core{};
+        cse3330::Core core{ };
 
         core.run();
 

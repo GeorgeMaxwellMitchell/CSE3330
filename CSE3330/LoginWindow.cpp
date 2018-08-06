@@ -7,7 +7,7 @@ namespace cse3330 {
     // 
 
     // Constructor also defines window layout
-    login_window::login_window()
+    LoginWindow::LoginWindow()
     :   window{ },
         login_button{ window, "Login" },
         host_name_textbox{ window },
@@ -49,17 +49,10 @@ namespace cse3330 {
             window.close();
 
         });
-
-        // Exits program on exiting window
-        window.events().destroy( [&] { 
-
-            throw std::exception{ "Window closed" };
-        
-        });
     
     } // login_window
 
-    void login_window::show_window() {
+    void LoginWindow::show_window() {
     
         window.show();
 
@@ -68,12 +61,12 @@ namespace cse3330 {
     } // show_window
 
     // Window input getters
-    std::string login_window::get_hostname() const { return hostname; }
+    std::string LoginWindow::get_hostname() const { return hostname; }
 
-    std::string login_window::get_username() const { return username; }
+    std::string LoginWindow::get_username() const { return username; }
 
-    std::string login_window::get_password() const { return password; }
+    std::string LoginWindow::get_password() const { return password; }
 
-    std::string login_window::get_database() const { return database; }
+    std::string LoginWindow::get_database() const { return database; }
 
 }

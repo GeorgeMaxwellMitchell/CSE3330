@@ -11,12 +11,12 @@ namespace cse3330 {
 
     void GUI::show_login() {
 
-        l_win.show_window();
+        login_window.show_window();
 
-        std::string hostname = l_win.get_hostname();
-        std::string username = l_win.get_username();
-        std::string password = l_win.get_password();
-        std::string database = l_win.get_database();
+        std::string hostname = login_window.get_hostname();
+        std::string username = login_window.get_username();
+        std::string password = login_window.get_password();
+        std::string database = login_window.get_database();
 
         connector->connect_to_server(hostname, username, password, database);
 

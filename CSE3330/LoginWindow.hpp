@@ -2,11 +2,11 @@
 
 namespace cse3330 {
 
-    class login_window final {
+    class LoginWindow final {
 
     public:
 
-        login_window();
+        LoginWindow();
 
         void show_window();
 

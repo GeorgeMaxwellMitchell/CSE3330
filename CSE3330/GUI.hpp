@@ -5,7 +5,7 @@
 namespace cse3330 {
 
     class Connector;
-    class login_window;
+    class LoginWindow;
 
     class GUI final {
 
@@ -20,7 +20,7 @@ namespace cse3330 {
 
         Connector* connector;   // Pointer to Connector object
 
-        login_window l_win;
+        LoginWindow login_window;
 
     };
 
