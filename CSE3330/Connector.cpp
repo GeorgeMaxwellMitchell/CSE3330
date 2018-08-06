@@ -54,9 +54,6 @@ namespace cse3330 {
         std::cerr << "Connected to " << database << " as " << user_name
             << " on " << host_name << std::endl;
 
-        std::cerr << "Press any key to continue" << std::endl;
-        std::getchar();
-
     } // connect_to_server
 
     std::vector< std::vector<std::string> > Connector::send_query(
