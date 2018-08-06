@@ -18,14 +18,14 @@ namespace cse3330 {
         void show_login();
 
         // Displays the main window
-        //void show_main();
+        void show_main();
 
     private:
 
         Connector* connector;   // Pointer to Connector object
 
         LoginWindow login_window;
-        //MainWindow main_window;
+        MainWindow main_window;
 
     };
 
