@@ -8,8 +8,8 @@ namespace cse3330 {
 
     GUI::GUI(Connector* connector)
     :   connector{ connector },
-        login_window{ }//,
-        //main_window{ } 
+        login_window{ },
+        main_window{ } 
     { }
 
     void GUI::show_login() {
@@ -31,10 +31,10 @@ namespace cse3330 {
 
     }
 
-    /*void GUI::show_main() {
+    void GUI::show_main() {
 
         main_window.show_window();
 
-    }*/
+    }
 
 }

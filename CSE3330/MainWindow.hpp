@@ -12,9 +12,7 @@ namespace cse3330 {
 
     private:
 
-        nana::form window;
 
-        nana::textbox output_textbox;
 
     };
 
