@@ -13,10 +13,16 @@ namespace cse3330 {
 
         login_window.show_window();
 
-        std::string hostname = login_window.get_hostname();
-        std::string username = login_window.get_username();
-        std::string password = login_window.get_password();
-        std::string database = login_window.get_database();
+        std::string hostname{ login_window.get_hostname() };
+        std::string username{ login_window.get_username() };
+        std::string password{ login_window.get_password() };
+        std::string database{ login_window.get_database() };
+
+        if (hostname.empty()) {
+
+            hostname = "localhost";
+
+        }
 
         connector->connect_to_server(hostname, username, password, database);
 
