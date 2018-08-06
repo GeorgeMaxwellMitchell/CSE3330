@@ -12,6 +12,8 @@ namespace cse3330 {
 
         gui.show_login();
 
+        gui.show_main();
+
     }
 
 } // namespace cse3330

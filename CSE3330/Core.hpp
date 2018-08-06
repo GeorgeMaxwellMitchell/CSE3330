@@ -17,6 +17,7 @@ namespace cse3330 {
 
         Connector connector;
         GUI gui;
+
     };
 
 }

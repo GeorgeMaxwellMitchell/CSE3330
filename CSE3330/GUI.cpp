@@ -7,7 +7,9 @@
 namespace cse3330 {
 
     GUI::GUI(Connector* connector)
-    :   connector{ connector } { }
+    :   connector{ connector },
+        login_window{ },
+        main_window{ } { }
 
     void GUI::show_login() {
 
@@ -25,6 +27,12 @@ namespace cse3330 {
         }
 
         connector->connect_to_server(hostname, username, password, database);
+
+    }
+
+    void GUI::show_main() {
+
+        main_window.show_window();
 
     }
 

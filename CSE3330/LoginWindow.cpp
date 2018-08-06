@@ -55,7 +55,7 @@ namespace cse3330 {
 
         });
     
-    } // login_window
+    } // LoginWindow
 
     void LoginWindow::show_window() {
     
