@@ -4,9 +4,7 @@
 
 namespace cse3330 {
 
-    MainWindow::MainWindow() {
-
-    } // MainWindow
+    MainWindow::MainWindow() { } // MainWindow
 
     // Note: all window logic placed here to prevent nana from crashing
     // For some reason having both MainWindow and LoginWindow contain
