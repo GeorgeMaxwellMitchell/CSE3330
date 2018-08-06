@@ -11,6 +11,9 @@ namespace cse3330 {
     // Note: all window logic placed here to prevent nana from crashing
     // For some reason having both MainWindow and LoginWindow contain
     // window objects causes the program to freeze
+
+    // Handling Connector output:
+    // https://github.com/cnjinhao/nana/wiki/Using-STL-Sequence-Container
     void MainWindow::show_window() {
 
         nana::form window;
