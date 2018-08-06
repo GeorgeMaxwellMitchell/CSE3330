@@ -9,6 +9,7 @@ namespace cse3330 {
         gui{&connector} { }
 
     void Core::run() {
+
         std::cerr << "CSE3330 Project 2 by George Mitchell & Peter Severynen" << std::endl;
         std::cerr << "Logging info will appear here" << std::endl;
 
