@@ -16,9 +16,11 @@
 
 // Standard C++ headers
 #include <iostream>
+#include <iomanip>
 #include <exception>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 // Standard C headers
 #include <cstdlib>

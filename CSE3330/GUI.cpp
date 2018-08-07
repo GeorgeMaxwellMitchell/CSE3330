@@ -43,52 +43,37 @@ namespace cse3330 {
         nana::textbox output_textbox{ window };
         output_textbox.multi_lines(true).editable(false).line_wrapped(false);
 
-
-        
         // Team Query textbox config ------------------------------------
-        nana::textbox team_query{ window };
-        team_query.tip_string("Enter Team Name");
-        team_query.multi_lines(false);
-
-        team_query.events().key_release(
+        nana::textbox team_query_textbox{ window };
+        team_query_textbox.tip_string("Enter team name to show players");
+        team_query_textbox.multi_lines(false);
+        team_query_textbox.events().key_char(
             [&](nana::arg_keyboard const& key_arg) {
-                
+
                 std::string team_name;
-                team_query.getline(0, team_name);
-                if (!team_name.empty())
-                    return;
+                team_query_textbox.getline(0, team_name);
+                if (team_name.empty()) { return; }
 
                 if (key_arg.key == nana::keyboard::enter) {
-                    
-                    std::string query = "";
 
-                    auto result = connector->send_query(query, 0);
+                    std::string query = 
+                        "SELECT PName, PNo, Position FROM PLAYER WHERE Team =" 
+                        + team_name + ";";
 
-                    // display_results(result);
+                    auto results = connector->send_query(query, 0);
+                    if (!results.empty()) { 
+                        display_results(results, output_textbox);
+                    }
 
                 }
 
-            }
-        );
-
-        // Query buttons
-        // TODO: Get requirements from Elmasri on what queries are needed
-        nana::button
-            test_button_1{ window, "Test Button 1" },
-            test_button_2{ window, "Test Button 2" },
-            test_button_3{ window, "Test Button 3" };
+        }); // team_query_textbox behavior
 
         // Window format ------------------------------------------------
         nana::place window_format{ window };
-        window_format.div("<vert weight=100 <vert buttons > <> ><output>");
-
-        window_format["buttons"]
-            << test_button_1
-            << test_button_2
-            << test_button_3;
-
+        window_format.div("<vert weight=30% <vert height=25 input > <> ><output>");
+        window_format["input"] << team_query_textbox;
         window_format["output"] << output_textbox;
-
         window_format.collocate();
 
         // Show the window ----------------------------------------------
@@ -96,5 +81,28 @@ namespace cse3330 {
         nana::exec();
 
     } // show_main
+
+    void GUI::display_results(
+        std::vector<std::vector<std::string>>& results,
+        nana::textbox& output_textbox) {
+
+        output_textbox.reset();
+
+        std::for_each(results.begin(), results.end(), [&](auto& row) {
+        
+            std::for_each(row.begin(), row.end(), [&](auto& col_val) {
+            
+                // Testing on the command line
+                // TODO: move to output textbox
+
+                std::cout << std::setw(10) << col_val << "\t";
+            
+            });
+
+            std::cout << std::endl;
+        
+        });
+
+    }
 
 } // cse3330

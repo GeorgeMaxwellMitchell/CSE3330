@@ -21,9 +21,14 @@ namespace cse3330 {
 
     private:
 
-        Connector* connector;   // Pointer to Connector object
+        Connector* connector;       // Pointer to Connector object
 
-        LoginWindow login_window;
+        LoginWindow login_window;   // Login window object
+
+        // Displays ResultSet in output
+        void display_results(
+            std::vector<std::vector<std::string>>& results,
+            nana::textbox& output_textbox);     
 
     };
 
