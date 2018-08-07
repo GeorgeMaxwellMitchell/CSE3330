@@ -1,7 +1,6 @@
 #pragma once
 
 #include "LoginWindow.hpp"
-#include "MainWindow.hpp"
 
 namespace cse3330 {
 
@@ -25,7 +24,6 @@ namespace cse3330 {
         Connector* connector;   // Pointer to Connector object
 
         LoginWindow login_window;
-        MainWindow main_window;
 
     };
 
