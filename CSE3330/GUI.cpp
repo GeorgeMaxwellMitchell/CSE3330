@@ -33,42 +33,67 @@ namespace cse3330 {
     // Note: all window logic placed here to prevent nana from crashing
     // For some reason having both MainWindow and LoginWindow contain
     // window objects causes the program to freeze
-
-    // Handling Connector output:
-    // https://github.com/cnjinhao/nana/wiki/Using-STL-Sequence-Container
     void GUI::show_main() {
 
-            nana::form window{};
-            nana::textbox output_textbox{ window };
-            nana::place window_format{ window };
+        // Window configuration -----------------------------------------
+        nana::form window{ };
+        window.caption("CSE3330 Project 2");
 
-            // Text output config
-            output_textbox.multi_lines(true).editable(false).line_wrapped(false);
+        // Output textbox configuration ---------------------------------
+        nana::textbox output_textbox{ window };
+        output_textbox.multi_lines(true).editable(false).line_wrapped(false);
 
-            // Query buttons
-            // TODO: Get requirements from Elmasri on what queries are needed
-            nana::button
-                test_button_1{ window, "Test Button 1" },
-                test_button_2{ window, "Test Button 2" },
-                test_button_3{ window, "Test Button 3" };
 
-            // Window format
-            window_format.div("<vert weight=100 <vert buttons > <> ><output>");
+        
+        // Team Query textbox config ------------------------------------
+        nana::textbox team_query{ window };
+        team_query.tip_string("Enter Team Name");
+        team_query.multi_lines(false);
 
-            window_format["buttons"]
-                << test_button_1
-                << test_button_2
-                << test_button_3;
+        team_query.events().key_release(
+            [&](nana::arg_keyboard const& key_arg) {
+                
+                std::string team_name;
+                team_query.getline(0, team_name);
+                if (!team_name.empty())
+                    return;
 
-            window_format["output"] << output_textbox;
+                if (key_arg.key == nana::keyboard::enter) {
+                    
+                    std::string query = "";
 
-            window_format.collocate();
+                    auto result = connector->send_query(query, 0);
 
-            window.caption("CSE3330 Project 2");
+                    // display_results(result);
 
-            // Show the window
-            window.show();
-            nana::exec();
+                }
+
+            }
+        );
+
+        // Query buttons
+        // TODO: Get requirements from Elmasri on what queries are needed
+        nana::button
+            test_button_1{ window, "Test Button 1" },
+            test_button_2{ window, "Test Button 2" },
+            test_button_3{ window, "Test Button 3" };
+
+        // Window format ------------------------------------------------
+        nana::place window_format{ window };
+        window_format.div("<vert weight=100 <vert buttons > <> ><output>");
+
+        window_format["buttons"]
+            << test_button_1
+            << test_button_2
+            << test_button_3;
+
+        window_format["output"] << output_textbox;
+
+        window_format.collocate();
+
+        // Show the window ----------------------------------------------
+        window.show();
+        nana::exec();
 
     } // show_main
 
