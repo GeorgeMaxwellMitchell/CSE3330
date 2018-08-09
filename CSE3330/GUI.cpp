@@ -60,7 +60,7 @@ namespace cse3330 {
                         "SELECT PName, PNo, Position FROM PLAYER WHERE Team =" 
                         + team_name + ";";
 
-                    auto results = connector->send_query(query, 0);
+                    auto results = connector->send_query(query, 3);
                     if (!results.empty()) { 
                         display_results(results, output_textbox);
                     }
