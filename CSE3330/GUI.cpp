@@ -61,7 +61,13 @@ namespace cse3330 {
                         + team_name + "';";
 
                     auto results = connector->send_query(query, 3);
-                    if (!results.empty()) { 
+                    if (!results.empty()) {
+
+                        // Add labels
+                        results.insert(
+                            results.begin(),
+                            std::vector<std::string>{ 
+                            "PName", "Pno", "Position"});
                         display_results(results, output_textbox);
                     }
 
@@ -95,7 +101,7 @@ namespace cse3330 {
                 // Testing on the command line
                 // TODO: move to output textbox
 
-                std::cout << std::setw(10) << col_val << "\t";
+                std::cout << std::setw(14) << col_val;
             
             });
 
