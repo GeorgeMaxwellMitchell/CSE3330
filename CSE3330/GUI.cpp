@@ -57,8 +57,8 @@ namespace cse3330 {
                 if (key_arg.key == nana::keyboard::enter) {
 
                     std::string query = 
-                        "SELECT PName, PNo, Position FROM PLAYER WHERE Team =" 
-                        + team_name + ";";
+                        "SELECT PName, PNo, Position FROM PLAYER WHERE Team = '" 
+                        + team_name + "';";
 
                     auto results = connector->send_query(query, 3);
                     if (!results.empty()) { 
