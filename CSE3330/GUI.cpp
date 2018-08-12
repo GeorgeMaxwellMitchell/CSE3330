@@ -61,13 +61,14 @@ namespace cse3330 {
                         + team_name + "';";
 
                     auto results = connector->send_query(query, 3);
-                    if (!results.empty()) {
 
-                        // Add labels
-                        results.insert(
-                            results.begin(),
-                            std::vector<std::string>{ 
-                            "PName", "Pno", "Position"});
+                    // Add labels
+                    results.insert(
+                        results.begin(),
+                        std::vector<std::string>{
+                        "PName", "Pno", "Position"});
+
+                    if (!results.empty()) {
 
                         display_results(results, output_textbox);
 
@@ -98,13 +99,14 @@ namespace cse3330 {
                         "TeamID2 LIKE '" + game_type + "%';";
 
                     auto results = connector->send_query(query, 4);
-                    if (!results.empty()) {
 
-                        // Add labels
-                        results.insert(
-                            results.begin(),
-                            std::vector<std::string>{
-                            "Team 1", "Score 1", "Team 2", "Score 2"});
+                    // Add labels
+                    results.insert(
+                        results.begin(),
+                        std::vector<std::string>{
+                        "Team 1", "Score 1", "Team 2", "Score 2"});
+
+                    if (!results.empty()) {
 
                         display_results(results, output_textbox);
 
