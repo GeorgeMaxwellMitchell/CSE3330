@@ -124,10 +124,72 @@ namespace cse3330 {
         
         }); // Game query textbox config
 
+        // Dropdown menu config --------------------------------------------
+        nana::combox team_dropdown_menu{ window, nana::rectangle(20, 3, 150, 30) };
+        team_dropdown_menu.push_back("Russia");
+        team_dropdown_menu.push_back("Saudi Arabia");
+        team_dropdown_menu.push_back("Egypt");
+        team_dropdown_menu.push_back("Uruguay");
+        team_dropdown_menu.push_back("Portugal");
+        team_dropdown_menu.push_back("Spain");
+        team_dropdown_menu.push_back("Morocco");
+        team_dropdown_menu.push_back("IR Iran");
+        team_dropdown_menu.push_back("France");
+        team_dropdown_menu.push_back("Australia");
+        team_dropdown_menu.push_back("Peru");
+        team_dropdown_menu.push_back("Denmark");
+        team_dropdown_menu.push_back("Argentina");
+        team_dropdown_menu.push_back("Iceland");
+        team_dropdown_menu.push_back("Croatia");
+        team_dropdown_menu.push_back("Nigeria");
+        team_dropdown_menu.push_back("Brazil");
+        team_dropdown_menu.push_back("Switzerland");
+        team_dropdown_menu.push_back("Costa Rica");
+        team_dropdown_menu.push_back("Serbia");
+        team_dropdown_menu.push_back("Germany");
+        team_dropdown_menu.push_back("Mexico");
+        team_dropdown_menu.push_back("Sweden");
+        team_dropdown_menu.push_back("Korea Republic");
+        team_dropdown_menu.push_back("Belgium");
+        team_dropdown_menu.push_back("Panama");
+        team_dropdown_menu.push_back("Tunisia");
+        team_dropdown_menu.push_back("England");
+        team_dropdown_menu.push_back("Poland");
+        team_dropdown_menu.push_back("Senegal");
+        team_dropdown_menu.push_back("Colombia");
+        team_dropdown_menu.push_back("Japan");
+
+        team_dropdown_menu.events().selected(
+            [&](nana::arg_combox const& com_arg) {
+
+                std::string query =
+                    "SELECT PName, PNo, Position FROM PLAYER WHERE Team = '"
+                    + com_arg.widget.caption() + "';";
+
+                auto results = connector->send_query(query, 3);
+
+                // Add labels
+                results.insert(
+                    results.begin(),
+                    std::vector<std::string>{
+                    "PName", "Pno", "Position"});
+
+                if (!results.empty()) {
+
+                    display_results(results, output_textbox);
+
+                }
+        
+        }); // Team query dropdown config behavior
+
+
         // Window format ------------------------------------------------
         nana::place window_format{ window };
         window_format.div("<vert input ><output>");
-        window_format["input"] << team_query_textbox << game_query_textbox;
+        window_format["input"]
+            << team_query_textbox
+            << team_dropdown_menu
+            << game_query_textbox;
         window_format["output"] << output_textbox;
         window_format.collocate();
 
