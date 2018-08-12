@@ -91,6 +91,8 @@ namespace cse3330 {
 
         }
 
+        std::cerr << "Created 2D vector of tuples" << std::endl;
+
         return ret_set;
 
     } // send_query

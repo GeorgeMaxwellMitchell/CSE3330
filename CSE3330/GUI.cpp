@@ -134,6 +134,8 @@ namespace cse3330 {
 
         output_textbox.reset();
 
+        std::cerr << "Displaying output: " << std::endl;
+
         std::for_each(results.begin(), results.end(), [&](auto& row) {
         
             std::for_each(row.begin(), row.end(), [&](auto& col_val) {
