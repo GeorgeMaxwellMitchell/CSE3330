@@ -91,12 +91,19 @@ namespace cse3330 {
 
                 if (key_arg.key == nana::keyboard::enter) {
 
-                    std::string query = 
-                        "SELECT F.Team, G.Team1_Score, S.Team, G.Team2_Score"
-                        "FROM ((GAME AS G INNER JOIN TEAM AS F ON G.TeamID1 = F.TeamID)"
-                        "INNER JOIN TEAM AS S ON G.TeamID2 = S.TeamID)"
-                        "WHERE TeamID1 LIKE '" + game_type + "%' OR"
-                        "TeamID2 LIKE '" + game_type + "%';";
+
+                    std::string query =
+                        "SELECT F.Team, G.Team1_Score, S.Team, G.Team2_Score "
+                        "FROM ((GAME AS G INNER JOIN TEAM AS F ON G.TeamID1 = F.TeamID) "
+                        "INNER JOIN TEAM AS S ON G.TeamID2 = S.TeamID) "
+                        "WHERE MatchType = '" + game_type + "';";
+
+                    // Old query
+                        //"SELECT F.Team, G.Team1_Score, S.Team, G.Team2_Score"
+                        //"FROM ((GAME AS G INNER JOIN TEAM AS F ON G.TeamID1 = F.TeamID)"
+                        //"INNER JOIN TEAM AS S ON G.TeamID2 = S.TeamID)"
+                        //"WHERE TeamID1 LIKE '" + game_type + "%' OR"
+                        //"TeamID2 LIKE '" + game_type + "%';";
 
                     auto results = connector->send_query(query, 4);
 
@@ -147,7 +154,7 @@ namespace cse3330 {
 
                 // Outputting to textbox
                 output_textbox.append(col_val, true);
-                output_textbox.append("\t\t\t", true);
+                output_textbox.append("\t\t\t\t\t", true);
             
             });
 
