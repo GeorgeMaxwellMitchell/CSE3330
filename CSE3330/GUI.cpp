@@ -141,15 +141,19 @@ namespace cse3330 {
         std::for_each(results.begin(), results.end(), [&](auto& row) {
         
             std::for_each(row.begin(), row.end(), [&](auto& col_val) {
-            
-                // Testing on the command line
-                // TODO: move to output textbox
 
+                // Testing on the command line
                 std::cout << std::setw(14) << col_val;
+
+                // Outputting to textbox
+                output_textbox.append(col_val, true);
+                output_textbox.append("\t\t\t", true);
             
             });
 
             std::cout << std::endl;
+
+            output_textbox.append("\n", true);
         
         });
 
