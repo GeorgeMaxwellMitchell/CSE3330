@@ -124,7 +124,7 @@ namespace cse3330 {
         
         }); // Game query textbox config
 
-        // Dropdown menu config --------------------------------------------
+        // Team Dropdown menu config ----------------------------------------
         nana::combox team_dropdown_menu{ window, nana::rectangle(20, 3, 150, 30) };
         team_dropdown_menu.push_back("Russia");
         team_dropdown_menu.push_back("Saudi Arabia");
@@ -182,14 +182,63 @@ namespace cse3330 {
         
         }); // Team query dropdown config behavior
 
+        // Game type dropdown menu config -----------------------------------
+        nana::combox gametype_dropdown_menu{ window, nana::rectangle(20, 3, 150, 30) };
+        gametype_dropdown_menu.push_back("A");
+        gametype_dropdown_menu.push_back("B");
+        gametype_dropdown_menu.push_back("C");
+        gametype_dropdown_menu.push_back("D");
+        gametype_dropdown_menu.push_back("E");
+        gametype_dropdown_menu.push_back("F");
+        gametype_dropdown_menu.push_back("G");
+        gametype_dropdown_menu.push_back("H");
+        gametype_dropdown_menu.push_back("X");
+        gametype_dropdown_menu.push_back("Q");
+        gametype_dropdown_menu.push_back("S");
+        gametype_dropdown_menu.push_back("P");
+        gametype_dropdown_menu.push_back("L");
+
+        gametype_dropdown_menu.events().selected(
+            [&](nana::arg_combox const& com_arg) {
+
+            std::string query =
+                "SELECT F.Team, G.Team1_Score, S.Team, G.Team2_Score "
+                "FROM ((GAME AS G INNER JOIN TEAM AS F ON G.TeamID1 = F.TeamID) "
+                "INNER JOIN TEAM AS S ON G.TeamID2 = S.TeamID) "
+                "WHERE MatchType = '" + com_arg.widget.caption() + "';";
+
+            auto results = connector->send_query(query, 4);
+
+            // Add labels
+            results.insert(
+                results.begin(),
+                std::vector<std::string>{
+                "Team 1", "Score 1", "Team 2", "Score 2"});
+
+            if (!results.empty()) {
+
+                display_results(results, output_textbox);
+
+            }
+
+        }); // Gametype query dropdown config behavior
+
+        nana::label gametype_dropdown_desc{ window };
+        gametype_dropdown_desc.caption("Game type dropdown:");
+
+        nana::label team_dropdown_desc{ window };
+        team_dropdown_desc.caption("Team name dropdown:");
 
         // Window format ------------------------------------------------
         nana::place window_format{ window };
         window_format.div("<vert input ><output>");
         window_format["input"]
             << team_query_textbox
+            << team_dropdown_desc
             << team_dropdown_menu
-            << game_query_textbox;
+            << game_query_textbox
+            << gametype_dropdown_desc
+            << gametype_dropdown_menu;
         window_format["output"] << output_textbox;
         window_format.collocate();
 
