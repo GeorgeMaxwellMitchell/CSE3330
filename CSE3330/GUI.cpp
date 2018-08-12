@@ -68,17 +68,57 @@ namespace cse3330 {
                             results.begin(),
                             std::vector<std::string>{ 
                             "PName", "Pno", "Position"});
+
                         display_results(results, output_textbox);
+
                     }
 
-                }
+                } // behavior on pressing enter key
 
         }); // team_query_textbox behavior
 
+        // Game query textbox config ------------------------------------
+        nana::textbox game_query_textbox{ window };
+        game_query_textbox.tip_string("Enter game type to display games");
+        game_query_textbox.multi_lines(false);
+        game_query_textbox.events().key_char(
+            [&](nana::arg_keyboard const& key_arg) {
+        
+                std::string game_type{};
+                game_query_textbox.getline(0, game_type);
+                if (game_type.empty()) { return; }
+
+                if (key_arg.key == nana::keyboard::enter) {
+
+                    std::string query = 
+                        "SELECT F.Team, G.Team1_Score, S.Team, G.Team2_Score"
+                        "FROM ((GAME AS G INNER JOIN TEAM AS F ON G.TeamID1 = F.TeamID)"
+                        "INNER JOIN TEAM AS S ON G.TeamID2 = S.TeamID)"
+                        "WHERE TeamID1 LIKE '" + game_type + "%' OR"
+                        "TeamID2 LIKE '" + game_type + "%';";
+
+                    auto results = connector->send_query(query, 4);
+                    if (!results.empty()) {
+
+                        // Add labels
+                        results.insert(
+                            results.begin(),
+                            std::vector<std::string>{
+                            "Team 1", "Score 1", "Team 2", "Score 2"});
+
+                        display_results(results, output_textbox);
+
+                    }
+
+                } // behavior on pressing enter key
+
+        
+        }); // Game query textbox config
+
         // Window format ------------------------------------------------
         nana::place window_format{ window };
-        window_format.div("<vert weight=30% <vert height=25 input > <> ><output>");
-        window_format["input"] << team_query_textbox;
+        window_format.div("<vert input ><output>");
+        window_format["input"] << team_query_textbox << game_query_textbox;
         window_format["output"] << output_textbox;
         window_format.collocate();
 
